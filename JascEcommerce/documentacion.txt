@@ -1,0 +1,35 @@
+14/10
+se realizo la creacion de app home subcarpetas 
+static/home-css-js
+templates/home-home.html 
+se realiza desde urls del proyecto path('',include("home.urls"))
+#desde la urls del home
+
+from django.urls import path
+from .import views
+
+app_name="home"
+
+urlpatterns =[
+    path('home/', views.home, name="home"),
+]
+
+python manage.py collectstatic --noinput  # crea el staticfiles que se ingresa desde el settings.py
+STATIC_ROOT = BASE_DIR / 'staticfiles' 
+juan comparte el css html  y js 
+ #clase 1610
+ se crea home/navbar.html para dejar como base le gusta mas {'include'}, home.html y en CSS/navbar.css
+ 33 views.py
+ 
+    from django.shortcuts import render
+    from django.http import request
+    from store.models import Product
+
+    # Create your views here.
+    def home(request):
+        products = Product.objects.all().filter(is_available=True)
+        context = {
+            'products': products,
+        }
+        return render(request, "home/home.html", context)
+39 home.html

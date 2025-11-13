@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Updated register {% endblock %}
+
+{% block content %}
+ <h1>Bienvenido {{ new_user.first_name}}</h1>
+ <p> Tu cuenta se ha creado correctamente
+     Ahora puedes <a href="{% url 'login' %}">Iniciar sesión</a>
+</p>
+{% endblock %}
